@@ -1,0 +1,18 @@
+
+.dropdown {
+  opacity: 0.5;
+  background-color: #696a72;
+}
+
+.bg-gradient {
+  background-color: #40474f;
+}
+
+h1 {
+  padding-left: 10%;
+}
+
+
+.navbar {
+  border: 0 !important;
+}

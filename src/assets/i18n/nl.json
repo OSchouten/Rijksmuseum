@@ -1,0 +1,17 @@
+{
+  "front-page": {
+    "welcome-text": "Welkom op de Rijksmuseum zoekpagina!",
+    "dropdown-button": "Nederlands",
+    "dropdown-option1": "Engels",
+    "dropdown-option2": "Nederlands",
+    "welcome": "Welkom!",
+    "search-button": "Zoek",
+    "search-button-placeholder": "Zoek onderwerp of trefwoorden",
+    "github-advert": "Wil je meer van mijn werk zien? ",
+    "search-error1": "We hebben helaas geen resultaten gevonden voor ",
+    "search-error2": "Controleer of de zoekterm juist is ingevuld of probeer een andere zoekterm."
+  },
+  "art": {
+    "artist": "Artiest: "
+  }
+}

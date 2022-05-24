@@ -1,0 +1,27 @@
+.form-control-borderless {
+  border: none;
+  background-color: #40474f;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.heading-1, .heading-2 {
+  font-weight: 400;
+  text-transform: uppercase;
+  word-break: break-word;
+  color: #615e5e;
+}
+
+.heading-1 {
+  font-size: calc(2.5rem + 3.625 * ((100vw - 20rem) / 100));
+  line-height: .9;
+}
+
+.search {
+  margin-top: 5vw;
+}
+
+

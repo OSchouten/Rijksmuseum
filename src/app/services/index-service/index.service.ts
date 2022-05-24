@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {interval, firstValueFrom} from 'rxjs';
+import {firstValueFrom} from 'rxjs';
 
 
 @Injectable({
@@ -15,11 +15,8 @@ export class IndexService {
   public readonly resourceUrl: string = `${environment.apiURL}`;
   public readonly apiKey: string = environment.apiKey;
 
-  public async getCollectionRequest(culture: string, search: string) {
-    //let collection = await this._http.get<any[]>(`${this.resourceUrl}/${culture}/collection?key=${this.apiKey}&involvedMaker=${search}`,);
-    return await firstValueFrom(this._http.get<any[]>(`${this.resourceUrl}/${culture}/collection?key=${this.apiKey}&involvedMaker=${search}`,));
-
-
+  public async getCollectionRequest(culture: string, searchString: string) {
+    return await firstValueFrom(this._http.get<Object>(`${this.resourceUrl}/${culture}/collection?key=${this.apiKey}&involvedMaker=${searchString}`));
   }
 
   public async getDetailsRequest() {
