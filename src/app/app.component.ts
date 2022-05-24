@@ -2,7 +2,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,12 +9,10 @@ import {TranslateService} from "@ngx-translate/core";
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+  title = 'Rijksmuseum';
+
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
     translate.use('en');
   }
-
-  title = 'Rijksmuseum';
-
-
 }

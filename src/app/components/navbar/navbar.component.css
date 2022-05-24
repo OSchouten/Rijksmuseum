@@ -1,6 +1,5 @@
 
 .dropdown {
-  opacity: 0.5;
   background-color: #696a72;
 }
 
@@ -11,7 +10,6 @@
 h1 {
   padding-left: 10%;
 }
-
 
 .navbar {
   border: 0 !important;

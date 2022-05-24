@@ -1,9 +1,12 @@
-<!-- navbar/toolbar -->
-<app-navbar></app-navbar>
-
-<body style="background-image: url('https://wallpaperaccess.com/full/164553.png'); background-size: cover;">
-<div class="content" role="main">
-  <router-outlet></router-outlet>
+<body>
+<div class="app-wrapper min-vh-100"
+     style="background-image: url('https://wallpaperaccess.com/full/164553.png'); background-size: cover;">
+  <app-navbar></app-navbar>
+  <div class="w-100 wrapper">
+    &nbsp;
+    <div class="inner-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
 </body>
-

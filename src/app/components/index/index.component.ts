@@ -23,7 +23,6 @@ export class IndexComponent implements OnInit {
 
     await this.indexService.getCollectionRequest(culture, this.searchInput).then(r => {
       this.artCollection = JSON.parse(JSON.stringify(r));
-
     });
     this.hasSearched = true;
   }

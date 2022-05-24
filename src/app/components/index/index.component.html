@@ -8,28 +8,28 @@
           </div>
           <h1 class="heading-1 search-heading">{{ 'front-page.search-button' | translate }}</h1>
           <div class="col">
-            <input [(ngModel)]="searchInput" class="form-control form-control-lg form-control-borderless" type="search"
-                   placeholder="{{ 'front-page.search-button-placeholder' | translate }}">
+            <input [(ngModel)]="searchInput" class="form-control form-control-lg form-control-borderless" placeholder="{{ 'front-page.search-button-placeholder' | translate }}"
+                   type="search">
           </div>
           <div class="col-auto">
-            <button class="btn btn-secondary btn-lg" type="submit"
-                    (click)="executeSearch()">{{ 'front-page.search-button' | translate }}</button>
+            <button (click)="executeSearch()" class="btn btn-secondary btn-lg"
+                    type="submit">{{ 'front-page.search-button' | translate }}</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container" *ngIf="hasSearched == true">
+  <div *ngIf="hasSearched == true" class="container">
     <div class="grid">
-      <div class="item" *ngFor="let art of artCollection['artObjects']">
-        <a href="#0" aria-labelledby="person1"></a>
+      <div *ngFor="let art of artCollection['artObjects']" class="item">
+        <a aria-labelledby="person1" href="#0"></a>
         <img
-          [src]="art['webImage']['url']" [alt]="">
+          [alt]="" [src]="art['webImage']['url']">
         <div class="item__overlay">
-          <h3 id="person1" aria-hidden="true">{{art['longTitle']}}</h3>
+          <h3 aria-hidden="true" id="person1">{{art['longTitle']}}</h3>
           <div class="item__body">
-            <h3 id="person" aria-hidden="true">{{ 'art.artist' | translate }}{{ art['principalOrFirstMaker']}}</h3>
+            <h3 aria-hidden="true" id="person">{{ 'art.artist' | translate }}{{ art['principalOrFirstMaker']}}</h3>
           </div>
         </div>
       </div>
