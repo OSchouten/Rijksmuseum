@@ -20,7 +20,7 @@
           </div>
           <div class="col">
             <input [(ngModel)]="searchInput" class="form-control form-control-lg form-control-borderless"
-                   placeholder="{{ 'front-page.search-button-placeholder' | translate }}"
+                   placeholder="{{ 'front-page.search-button-placeholder' | translate }}" (keydown.enter)="executeSearch()"
                    type="search">
           </div>
           <div class="col-auto">
@@ -39,7 +39,7 @@
         <a aria-labelledby="art" (click)="goToDetail(art)"></a>
         <img *ngIf="art['hasImage'];else elseBlock"
              [alt]="'assets/jpg/image-pending.jpg'" [src]="art['webImage']['url']" loading="lazy">
-        <div class="item__overlay" id="header-image">
+        <div class="item__overlay">
           <h3 aria-hidden="true" id="person1">{{art['title']}}.<br>{{art['principalOrFirstMaker']}}</h3>
         </div>
       </div>

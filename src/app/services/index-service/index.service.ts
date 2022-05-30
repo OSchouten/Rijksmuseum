@@ -4,7 +4,6 @@ import {environment} from "../../../environments/environment";
 import {firstValueFrom} from 'rxjs';
 import {TranslateService} from "@ngx-translate/core";
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +16,10 @@ export class IndexService {
   constructor(protected _http: HttpClient, private translate: TranslateService) {
   }
 
+  public order() {
+
+  }
+
   public async getCollectionRequest(searchString: string, range: number) {
 
     this.artCollection = firstValueFrom(this._http.get<Object>(`${this.resourceUrl}/${this.translate.currentLang}/collection?key=${this.apiKey}&q=${searchString}&ps=${range}`));
@@ -24,6 +27,6 @@ export class IndexService {
   }
 
   public sentObject() {
-      return this.artCollection;
+    return this.artCollection;
   }
 }
