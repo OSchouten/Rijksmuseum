@@ -7,8 +7,20 @@
             <i class="fas fa-search h4 text-body"></i>
           </div>
           <h1 class="heading-1 search-heading">{{ 'front-page.search-button' | translate }}</h1>
+          <div class="col-auto">
+            <div class="dropdown" ngbDropdown>
+              <button aria-expanded="false" class="btn btn-secondary" id="dropdownMenuButton1" ngbDropdownToggle
+                      type="button">
+                {{ 'front-page.dropdown-button-range' | translate }}
+              </button>
+              <ul aria-labelledby="dropdownMenuButton1" ngbDropdownMenu>
+                <input type="text" [(ngModel)]="range">
+              </ul>
+            </div>
+          </div>
           <div class="col">
-            <input [(ngModel)]="searchInput" class="form-control form-control-lg form-control-borderless" placeholder="{{ 'front-page.search-button-placeholder' | translate }}"
+            <input [(ngModel)]="searchInput" class="form-control form-control-lg form-control-borderless"
+                   placeholder="{{ 'front-page.search-button-placeholder' | translate }}"
                    type="search">
           </div>
           <div class="col-auto">
@@ -22,21 +34,25 @@
 
   <div *ngIf="hasSearched == true" class="container">
     <div class="grid">
-      <div *ngFor="let art of artCollection['artObjects']" class="item">
-        <a aria-labelledby="person1" href="#0"></a>
-        <img
-          [alt]="" [src]="art['webImage']['url']">
-        <div class="item__overlay">
-          <h3 aria-hidden="true" id="person1">{{art['longTitle']}}</h3>
-          <div class="item__body">
-            <h3 aria-hidden="true" id="person">{{ 'art.artist' | translate }}{{ art['principalOrFirstMaker']}}</h3>
-          </div>
+      <div *ngFor="let art of artCollection['artObjects'] | paginate: { itemsPerPage: 9, currentPage: p }"
+           class="border border-light item">
+        <a aria-labelledby="art" (click)="goToDetail(art)"></a>
+        <img *ngIf="art['hasImage'];else elseBlock"
+             [alt]="'assets/jpg/image-pending.jpg'" [src]="art['webImage']['url']" loading="lazy">
+        <div class="item__overlay" id="header-image">
+          <h3 aria-hidden="true" id="person1">{{art['title']}}.<br>{{art['principalOrFirstMaker']}}</h3>
         </div>
       </div>
+      <div id="bottom">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
-    <div *ngIf="hasSearched == true && artCollection['artObjects'].length == 0">
+    <div *ngIf="hasSearched == true && artCollection['artObjects'].length == 0" id="searchError">
       {{ 'front-page.search-error1' | translate }}{{searchInput + '.'}} {{ 'front-page.search-error2' | translate }}
     </div>
   </div>
 </div>
 
+<ng-template #elseBlock>
+  <img [alt]="'assets/jpg/image-pending.jpg'" [src]="'assets/jpg/image-pending.jpg'">
+</ng-template>

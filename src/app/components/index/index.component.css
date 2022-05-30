@@ -1,6 +1,7 @@
 .form-control-borderless {
   border: none;
   background-color: #40474f;
+  color: white;
 }
 
 .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
@@ -13,7 +14,7 @@
   font-weight: 400;
   text-transform: uppercase;
   word-break: break-word;
-  color: #615e5e;
+  color: papayawhip;
 }
 
 .heading-1 {
@@ -25,4 +26,18 @@
   margin-top: 5vw;
 }
 
+#searchError {
+  color: papayawhip;
+}
 
+pagination-controls {
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+#bottom {
+  position: relative;
+  bottom: 0;
+  left: 100%;
+}

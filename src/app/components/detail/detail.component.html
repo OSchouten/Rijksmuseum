@@ -1,0 +1,43 @@
+<div *ngIf="hasSearched == true" class="container">
+  <div class="container__profile">
+    <img *ngIf="artObject['hasImage'];else elseBlock"
+         [alt]="'assets/jpg/image-pending.jpg'" [src]="artObject['webImage']['url']" loading="eager"
+         (click)="openPopup()">
+    <div class="container__profile__text">
+      <h2> {{artObject['title']}}</h2>
+      <p>by {{artObject['scLabelLine']}}.</p>
+      <h6> {{artObject['description']}} </h6>
+    </div>
+  </div>
+  <div id="bottom">
+    <h5> {{artObject['acquisition']['creditLine']}}
+    </h5>
+    <h5 *ngIf="language=='nl';else english">
+      {{artObject['plaqueDescriptionDutch']}}
+    </h5>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <img [alt]="'assets/jpg/image-pending.jpg'" [src]="'assets/jpg/image-pending.jpg'">
+</ng-template>
+
+<ng-template #english>
+  {{artObject['plaqueDescriptionEnglish']}}
+</ng-template>
+
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <img id="modal-image" *ngIf="artObject['hasImage'];else elseBlock"
+       [alt]="'assets/jpg/image-pending.jpg'" [src]="artObject['webImage']['url']" loading="eager">
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger"
+            (click)="closePopup()">      Close
+    </button>
+  </div>
+</div>
+

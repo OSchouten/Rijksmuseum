@@ -9,7 +9,8 @@
     "search-button-placeholder": "Search topics or keywords",
     "github-advert": "Want to see more of my work? ",
     "search-error1": "Unfortunately we didn't find any results for ",
-    "search-error2": "Check whether the search term has been entered correctly or try a different search term."
+    "search-error2": "Check whether the search term has been entered correctly or try a different search term.",
+    "dropdown-button-range": "Range"
   },
   "art": {
     "artist": "Artist: "
