@@ -17,9 +17,6 @@ export class IndexComponent implements OnInit {
   range: number = 10;
 
   constructor(private indexService: IndexService, private translate: TranslateService, private paginate: PaginationService, private route: ActivatedRoute, private router: Router) {
-    this.route.params.subscribe(params => {
-    });
-
     translate.onLangChange.subscribe(lang => {
       if (this.artCollection.length != 0)
         this.executeSearch();

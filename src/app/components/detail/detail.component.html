@@ -5,7 +5,7 @@
          (click)="openPopup()">
     <div class="container__profile__text">
       <h2> {{artObject['title']}}</h2>
-      <p>by {{artObject['scLabelLine']}}.</p>
+      <h2>by {{artObject['scLabelLine']}}.</h2>
       <h6> {{artObject['description']}} </h6>
     </div>
   </div>
@@ -23,7 +23,7 @@
 </ng-template>
 
 <ng-template #english>
-  {{artObject['plaqueDescriptionEnglish']}}
+  <h5>{{artObject['plaqueDescriptionEnglish']}} </h5>
 </ng-template>
 
 
@@ -36,7 +36,7 @@
        [alt]="'assets/jpg/image-pending.jpg'" [src]="artObject['webImage']['url']" loading="eager">
   <div class="modal-footer">
     <button type="button" class="btn btn-danger"
-            (click)="closePopup()">      Close
+            (click)="closePopup()"> Close
     </button>
   </div>
 </div>

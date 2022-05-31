@@ -24,15 +24,22 @@
 }
 
 img {
-  max-width: 100%;
   max-height: 65%;
   position: absolute;
   margin: auto;
   top: 0;
-  bottom: 0;
+  bottom: -5%;
   left: 0;
   right: 0;
+
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
 }
+h5,h2,h3,h4,h6{
+  color: black;
+}
+
 
 #bottom {
   position: absolute;
