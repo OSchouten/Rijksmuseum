@@ -8,19 +8,62 @@
           </div>
           <h1 class="heading-1 search-heading">{{ 'front-page.search-button' | translate }}</h1>
           <div class="col-auto">
-            <div class="dropdown" ngbDropdown>
-              <button aria-expanded="false" class="btn btn-secondary" id="dropdownMenuButton1" ngbDropdownToggle
+            <div ngbDropdown class="d-inline-block">
+              <button aria-expanded="false" class="btn btn-secondary" id="dropdown" ngbDropdownToggle
                       type="button">
-                {{ 'front-page.dropdown-button-range' | translate }}
+                {{ 'front-page.dropdown-button-options' | translate }}
               </button>
-              <ul aria-labelledby="dropdownMenuButton1" ngbDropdownMenu>
-                <input type="text" [(ngModel)]="range">
-              </ul>
+              <div ngbDropdownMenu aria-labelledby="dropdown">
+                <div class="px-4 py-3">
+
+                  <div class="mb-3">
+                    <label for="dropDownRange">{{ 'dropdownOptions.range' | translate }}</label>
+                    <input type="number" class="text-start" id="dropDownRange" [(ngModel)]="range" placeholder="10">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="dropdownArtist">{{ 'dropdownOptions.artist' | translate }}</label>
+                    <input type="text" class="text-start" id="dropdownArtist" [(ngModel)]="artist"
+                           placeholder="Rembrandt van Rijn">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="dropDownType">{{ 'dropdownOptions.type' | translate }}</label>
+                    <input type="text" class="text-start" id="dropDownType" [(ngModel)]="type" placeholder="Painting">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="dropDownMaterial">{{ 'dropdownOptions.material' | translate }}</label>
+                    <input type="text" class="text-start" id="dropDownMaterial" [(ngModel)]="material"
+                           placeholder="Paint">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="dropDownTechnique">{{ 'dropdownOptions.technique' | translate }}</label>
+                    <input type="text" class="text-start" id="dropDownTechnique" [(ngModel)]="technique"
+                           placeholder="impasto">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="dropDownDatingPeriod">{{ 'dropdownOptions.dating.period' | translate }}</label>
+                    <input type="number" class="text-start" id="dropDownDatingPeriod" [(ngModel)]="datingPeriod"
+                           placeholder="1700">
+                  </div>
+
+                  <input type="checkbox" class="checkbox" id="dropdownCheck" [checked]="imgOnly"
+                         (change)="imgOnly = !imgOnly">
+                  <label class="checkbox" for="dropdownCheck">
+                    {{ 'dropdownOptions.imgonly' | translate }}
+                  </label>
+                </div>
+                <div class="dropdown-divider"></div>
+              </div>
             </div>
           </div>
           <div class="col">
             <input [(ngModel)]="searchInput" class="form-control form-control-lg form-control-borderless"
-                   placeholder="{{ 'front-page.search-button-placeholder' | translate }}" (keydown.enter)="executeSearch()"
+                   placeholder="{{ 'front-page.search-button-placeholder' | translate }}"
+                   (keydown.enter)="executeSearch()"
                    type="search">
           </div>
           <div class="col-auto">
@@ -52,7 +95,6 @@
     </div>
   </div>
 </div>
-
 <ng-template #elseBlock>
   <img [alt]="'assets/jpg/image-pending.jpg'" [src]="'assets/jpg/image-pending.jpg'">
 </ng-template>

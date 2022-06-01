@@ -10,9 +10,18 @@
     "github-advert": "Wil je meer van mijn werk zien? ",
     "search-error1": "We hebben helaas geen resultaten gevonden voor ",
     "search-error2": "Controleer of de zoekterm juist is ingevuld of probeer een andere zoekterm.",
-    "dropdown-button-range": "Bereik"
+    "dropdown-button-options": "Opties"
   },
   "art": {
     "artist": "Artiest: "
+  },
+  "dropdownOptions": {
+    "range": "Hoeveelheid resultaten",
+    "artist": "Artiest",
+    "type": "Soort object",
+    "material": "Gebruikt materiaal",
+    "technique": "Gebruikte techniek",
+    "dating.period": "Oorsprong tijdsperiode",
+    "imgonly": "Alleen resultaten met foto's"
   }
 }

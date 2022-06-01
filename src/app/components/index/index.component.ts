@@ -14,7 +14,15 @@ export class IndexComponent implements OnInit {
   artCollection: any = [];
   hasSearched: boolean = false;
   p: number = 1;
+
   range: number = 10;
+  material: string = "";
+  artist: string = "";
+  technique: string = "";
+  type: string = "";
+  datingPeriod: number = 0;
+  imgOnly: boolean = false;
+
 
   constructor(private indexService: IndexService, private translate: TranslateService, private paginate: PaginationService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
@@ -46,14 +54,14 @@ export class IndexComponent implements OnInit {
   }
 
   async executeSearch() {
+    console.log(this.imgOnly)
     if (this.range > 100 || this.range < 0)
       this.range = 10;
 
     this.artCollection.clear;
-    await this.indexService.getCollectionRequest(this.searchInput, this.range).then(r => {
+    await this.indexService.getCollectionRequest(this.searchInput, this.range, this.imgOnly, this.datingPeriod, this.technique, this.material, this.artist, this.type).then(r => {
       this.artCollection = JSON.parse(JSON.stringify(r));
     });
     this.hasSearched = true;
-    console.log(this.artCollection)
   }
 }

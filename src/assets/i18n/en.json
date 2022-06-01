@@ -10,9 +10,19 @@
     "github-advert": "Want to see more of my work? ",
     "search-error1": "Unfortunately we didn't find any results for ",
     "search-error2": "Check whether the search term has been entered correctly or try a different search term.",
-    "dropdown-button-range": "Range"
+    "dropdown-button-options": "Options"
   },
   "art": {
     "artist": "Artist: "
+  },
+  "dropdownOptions": {
+    "range": "Number of results",
+    "artist": "Creator",
+    "type": "Type of object",
+    "material": "Used material",
+    "technique": "Used technique",
+    "dating.period": "Dating period of piece",
+    "imgonly": "Only show results with an image"
+
   }
 }

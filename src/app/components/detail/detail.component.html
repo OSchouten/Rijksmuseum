@@ -27,16 +27,13 @@
 </ng-template>
 
 
-<div
-  class="modal"
-  tabindex="-1"
-  role="dialog"
-  [ngStyle]="{'display':displayStyle}">
+<div class="modal" (keydown.escape)="closePopup()"
+     tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
   <img id="modal-image" *ngIf="artObject['hasImage'];else elseBlock"
        [alt]="'assets/jpg/image-pending.jpg'" [src]="artObject['webImage']['url']" loading="eager">
   <div class="modal-footer">
     <button type="button" class="btn btn-danger"
-            (click)="closePopup()">      Close
+            (click)="closePopup()"> Close
     </button>
   </div>
 </div>

@@ -16,13 +16,29 @@ export class IndexService {
   constructor(protected _http: HttpClient, private translate: TranslateService) {
   }
 
-  public order() {
+  public async getCollectionRequest(searchString: string, range: number, imgOnly: boolean, datingPeriod: number, technique: string, material: string, artist: string, type: string) {
 
-  }
+    const myURL = new URL(`${this.resourceUrl}/${this.translate.currentLang}/collection`);
+    myURL.searchParams.append("key", this.apiKey);
+    myURL.searchParams.append("ps", String(range));
+    myURL.searchParams.append("q", searchString);
 
-  public async getCollectionRequest(searchString: string, range: number) {
+    if (artist != "")
+      myURL.searchParams.append("involvedMaker", artist.toLowerCase());
+    if (type != "")
+      myURL.searchParams.append("type", type.toLowerCase());
+    if (material != "")
+      myURL.searchParams.append("material", material.toLowerCase());
+    if (technique != "")
+      myURL.searchParams.append("technique", technique.toLowerCase());
+    if (datingPeriod != 0)
+      myURL.searchParams.append("f.dating.period", String(datingPeriod));
+    if (imgOnly)
+      myURL.searchParams.append("imgonly", "True");
 
-    this.artCollection = firstValueFrom(this._http.get<Object>(`${this.resourceUrl}/${this.translate.currentLang}/collection?key=${this.apiKey}&q=${searchString}&ps=${range}`));
+    console.log(myURL.href);
+
+    this.artCollection = firstValueFrom(this._http.get<Object>(myURL.toString()));
     return await this.artCollection;
   }
 
