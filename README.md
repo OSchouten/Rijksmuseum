@@ -28,10 +28,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Purpose and design choices
 
-This application is a simple searchtool for the online art collection of the Rijksmuseum. The Angular framework was used to create this application. Here I will describe some of the choices I've made while making this website and why. 
+This application is a simple search tool for the online art collection of the Rijksmuseum. I used the Angular framework to create this application. Here I will describe some of the choices I've made while making this website and why. 
 
-To load in information from the Rijksmuseum API I used RXJS. This library was used to allow asynchronous retrieval of data. This way while loading in the webpage and informatie the rest of the application can continue to function and execute tasks while waiting. 
-I also decided to load in the pictures lazily, this reduces stress on the user's side and increases efficieny. I wanted to use lower resolution pictures for the main page results but was unable to implement this in a satisfactory way so I left it as is, this is a point of improvement to reduce the load. 
+To load in information from the Rijksmuseum API I used RXJS. I used this library to allow asynchronous retrieval of data. This way while loading in the webpage and information the rest of the application can continue to function and execute tasks while waiting. 
+I also decided to load in the pictures lazily, this reduces stress on the user's side and increases efficiency. I wanted to use lower resolution pictures for the main page results but was unable to implement this properly. Because of that I left it as is, this is a point of improvement to reduce client-side load. 
 
-Requesting information from the Rijksmuseum API goes through services, here it is stored. When a component needs to display the information it's requested from the service. This way while swapping between pages information is stored so a person doesn't have to do the search request again. 
+Requesting information from the Rijksmuseum API goes through services, here it is stored. If there's a component that needs to display the information, it requests this information from the service. This way while swapping between pages information stays stored without having to do requests again. 
+To enable a more efficient creation of the API-request I used the URL type and simply appended options to it when selected. 
+
+I decided to have a separate page for the detail section of a selected art piece. I felt this would be cleaner and less distracting. 
+
+I didn't use libraries like ramda and lodash because I did not feel like they were required in my application.  
 
