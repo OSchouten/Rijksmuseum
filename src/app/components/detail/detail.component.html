@@ -1,5 +1,5 @@
 <div *ngIf="hasSearched == true" class="container">
-  <div class="container__profile">
+  <div class="container__profile py-3 md-4">
     <img *ngIf="artObject['hasImage'];else elseBlock"
          [alt]="'assets/jpg/image-pending.jpg'" [src]="artObject['webImage']['url']" loading="eager"
          (click)="openPopup()">
